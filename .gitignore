@@ -6,4 +6,4 @@ checkpoints/
 *.safetensors
 *.bin
 *.pt
-__pycache__/
+__pycache__/*.egg-info/
