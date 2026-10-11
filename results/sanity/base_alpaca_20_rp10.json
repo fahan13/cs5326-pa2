@@ -1,0 +1,182 @@
+[
+  {
+    "id": "alpaca_eval-000",
+    "instruction": "What are the names of some famous actors that started their careers on Broadway?",
+    "output": "Some famous actors that started their careers on Broadway include:\n\n1. Marlon Brando - \"The Godfather\"\n2. Marlon Brando - \"The Godfather\"\n3. Marlon Brando - \"The Godfather\"\n4. Marlon Brando - \"The Godfather\"\n5. Marlon Brando - \"The Godfather\"\n6. Marlon Brando - \"The Godfather\"\n7. Marlon Brando - \"The Godfather\"\n8. Marlon Brando - \"The Godfather\"\n9. Marlon Brando - \"The Godfather\"\n10. Marlon Brando - \"The Godfather\"\n11. Marlon Brando - \"The Godfather\"\n12. Marlon Brando - \"The Godfather\"\n13. Marlon Brando - \"The Godfather\"\n14. Marlon Brando - \"The Godfather\"\n15. Marlon Brando - \"The Godfather\"\n16. Marlon Brando - \"The Godfather\"\n17. Marlon Brando - \"The Godfather\"\n18. Marlon Brando - \"The Godfather\"\n19. Marlon Brando - \"The Godfather\"\n20. Marlon Brando - \"The Godfather\"\n21. Marlon Brando - \"The Godfather\"\n22. Marlon Brando - \"The Godfather\"\n23. Marlon Brando - \"The Godfather\"\n24. Marlon Brando - \"The Godfather\"\n25. Marlon Brando - \"The Godfather\"\n26. Marlon Brando - \"The Godfather\"\n27. Marlon Brando - \"The Godfather\"\n28. Marlon Brando - \"The Godfather\"\n29. Marlon Brando - \"The Godfather\"\n30. Marlon Brando - \"The Godfather\"\n31. Marlon Brando - \"The Godfather\"\n32. Marlon Brando - \"The Godfather\"\n33. Marlon Brando - \"The Godfather\"\n34. Marlon Brando - \"The Godfather\"\n35. Marlon Brando - \"The Godfather\"\n36. Marlon Brando - \"The Godfather\"\n37. Marlon Brando - \"The Godfather\"\n38. Marlon Brando - \"The Godfather\"\n39. Marlon Brando - \"The Godfather\"\n40.",
+    "generator": "qwen2.5-0.5b-base",
+    "dataset": "alpaca_eval",
+    "finish_reason": "max_new_tokens",
+    "new_tokens": 512
+  },
+  {
+    "id": "alpaca_eval-002",
+    "instruction": "Hi, my sister and her girlfriends want me to play kickball with them. Can you explain how the game is played, so they don't take advantage of me?",
+    "output": "Sure, I'd be happy to help! Kickball is a popular sport that involves two teams of four players each. The game is played on a rectangular field with a goalpost at each end. The objective of the game is to score points by kicking the ball into the opponent's goal.\n\nTo play kickball, the players stand on opposite sides of the field and line up in a formation. The first player in each team takes the ball and kicks it towards the goalpost. The next player in each team takes the ball and kicks it towards the goalpost. This continues until one team has scored a point. The team that scores the most points wins the game.\n\nTo avoid taking advantage of you, the players should keep their hands on the ball and keep their eyes on the ball. They should also be careful not to make any mistakes or make any mistakes. If they make a mistake, they should try to correct it before the next play.",
+    "generator": "qwen2.5-0.5b-base",
+    "dataset": "alpaca_eval",
+    "finish_reason": "eos",
+    "new_tokens": 191
+  },
+  {
+    "id": "alpaca_eval-003",
+    "instruction": "What is some cool music from the 1920s?",
+    "output": "The 1920s was a time of great cultural and artistic innovation, and there were many talented musicians who contributed to the genre. Here are some examples of some cool music from the 1920s:\n\n1. \"The Sound of Music\" by Wolfgang Amadeus Mozart: This classic musical comedy was written in 1893 and was a hit in the 1920s. It tells the story of a young girl named Maria and her family as they travel to Austria to attend a wedding.\n\n2. \"The Jazz Singer\" by Orson Welles: This film was released in 1927 and was a huge success. It tells the story of a young man named Johnny Cash who becomes a star in the music industry.\n\n3. \"The Great Gatsby\" by F. Scott Fitzgerald: This novel was published in 1925 and was a classic of the 1920s. It tells the story of the wealthy Jay Gatsby and his pursuit of the love of his life, Daisy Buchanan.\n\n4. \"The Wizard of Oz\" by L. Frank Baum: This book was published in 1900 and was a hit in the 1920s. It tells the story of Dorothy Gale, a young girl who befriends a magical creature named Scarecrow.\n\n5. \"The Sound of Music\" by Wolfgang Amadeus Mozart: This classic musical comedy was written in 1893 and was a hit in the 1920s. It tells the story of a young girl named Maria and her family as they travel to Austria to attend a wedding.\n\n6. \"The Jazz Singer\" by Orson Welles: This film was released in 1927 and was a huge success. It tells the story of a young man named Johnny Cash who becomes a star in the music industry.\n\n7. \"The Great Gatsby\" by F. Scott Fitzgerald: This novel was published in 1925 and was a classic of the 1920s. It tells the story of the wealthy Jay Gatsby and his pursuit of the love of his life, Daisy Buchanan.\n\n8. \"The Wizard of Oz\" by L. Frank Baum: This book was published in 1900 and was a hit in the 1920s. It tells the story of Dorothy Gale, a young girl who befriends a magical creature named Scarecrow.\n\n9. \"The",
+    "generator": "qwen2.5-0.5b-base",
+    "dataset": "alpaca_eval",
+    "finish_reason": "max_new_tokens",
+    "new_tokens": 512
+  },
+  {
+    "id": "alpaca_eval-006",
+    "instruction": "Hi, I'm trying to solve a crossword puzzle, but I've never done one of these before. Can you help me out?",
+    "output": "Sure, I'd be happy to help you out. What kind of crossword puzzle are you trying to solve?",
+    "generator": "qwen2.5-0.5b-base",
+    "dataset": "alpaca_eval",
+    "finish_reason": "stop_marker",
+    "new_tokens": 25
+  },
+  {
+    "id": "alpaca_eval-007",
+    "instruction": "Who is Larry Page?",
+    "output": "Larry Page is the co-founder of Google. He is known for his contributions to the development of the search engine and the creation of the internet.",
+    "generator": "qwen2.5-0.5b-base",
+    "dataset": "alpaca_eval",
+    "finish_reason": "eos",
+    "new_tokens": 29
+  },
+  {
+    "id": "alpaca_eval-011",
+    "instruction": "I'm trying to teach myself to have nicer handwriting. Can you help?",
+    "output": "Certainly! Here are some tips to help you improve your handwriting:\n\n1. **Practice Regularly**: Consistency is key. Try to write for a few minutes every day, even if it's just for a few seconds. This will help you develop good habits.\n\n2. **Use a Good Pen**: Choose a pen that is comfortable to write with. A good pen should be easy to grip and not too heavy. You can also try different types of pens to see which one works best for you.\n\n3. **Use a Good Paper**: Choose a paper that is suitable for your writing style. A good paper should be thick enough to hold your writing but not too thick that it's difficult to hold.\n\n4. **Practice Writing**: Write as much as you can. The more you write, the better you will become. You can also try writing in different styles, such as cursive or script.\n\n5. **Use a Writing Tool**: There are many writing tools available, such as a pencil, pen, or eraser. Choose one that you find comfortable to use.\n\n6. **Read and Observe**: Read books, magazines, and newspapers to get a good idea of how to write. Observe how other people write and try to copy their styles.\n\n7. **Ask for Feedback**: If you're not sure how to write, ask someone for feedback. They can give you honest and constructive criticism.\n\n8. **Join a Writing Group**: Join a writing group or class to get feedback from others and to learn from their experiences.\n\n9. **Use a Writing App**: There are many writing apps available that can help you with your writing. Some popular options include Writely, Grammarly, and Grammarly Pro.\n\n10. **Be Patient**: Improving your handwriting takes time and practice. Don't get discouraged if you don't see immediate results. Keep practicing and you'll get there eventually.",
+    "generator": "qwen2.5-0.5b-base",
+    "dataset": "alpaca_eval",
+    "finish_reason": "eos",
+    "new_tokens": 386
+  },
+  {
+    "id": "alpaca_eval-015",
+    "instruction": "I want to get better at networking at work",
+    "output": "I want to get better at networking at work.",
+    "generator": "qwen2.5-0.5b-base",
+    "dataset": "alpaca_eval",
+    "finish_reason": "eos",
+    "new_tokens": 10
+  },
+  {
+    "id": "alpaca_eval-019",
+    "instruction": "I am going to try to roast a pig at home for Thanksgiving this year. What equipment and techniques do I need to successfully get a pig roasted?",
+    "output": "To roast a pig at home for Thanksgiving, you will need the following equipment and techniques:\n\nEquipment:\n1. A large, deep oven with a rack for the pig.\n2. A meat thermometer to check the internal temperature of the pig.\n3. A large, heavy skillet or Dutch oven for the pig.\n4. A large, heavy skillet or Dutch oven for the vegetables.\n5. A large, heavy skillet or Dutch oven for the gravy.\n6. A large, heavy skillet or Dutch oven for the gravy.\n7. A large, heavy skillet or Dutch oven for the vegetables.\n8. A large, heavy skillet or Dutch oven for the vegetables.\n9. A large, heavy skillet or Dutch oven for the vegetables.\n10. A large, heavy skillet or Dutch oven for the vegetables.\n11. A large, heavy skillet or Dutch oven for the vegetables.\n12. A large, heavy skillet or Dutch oven for the vegetables.\n13. A large, heavy skillet or Dutch oven for the vegetables.\n14. A large, heavy skillet or Dutch oven for the vegetables.\n15. A large, heavy skillet or Dutch oven for the vegetables.\n16. A large, heavy skillet or Dutch oven for the vegetables.\n17. A large, heavy skillet or Dutch oven for the vegetables.\n18. A large, heavy skillet or Dutch oven for the vegetables.\n19. A large, heavy skillet or Dutch oven for the vegetables.\n20. A large, heavy skillet or Dutch oven for the vegetables.\n21. A large, heavy skillet or Dutch oven for the vegetables.\n22. A large, heavy skillet or Dutch oven for the vegetables.\n23. A large, heavy skillet or Dutch oven for the vegetables.\n24. A large, heavy skillet or Dutch oven for the vegetables.\n25. A large, heavy skillet or Dutch oven for the vegetables.\n26. A large, heavy skillet or Dutch oven for the vegetables.\n27. A large, heavy skillet or Dutch oven for the vegetables.\n28. A large, heavy skillet or Dutch oven for the vegetables.\n29. A large, heavy skillet or Dutch oven for the vegetables.\n30. A large, heavy skillet or Dutch oven for the vegetables.\n31. A large, heavy skillet or Dutch oven for the vegetables.\n32. A large, heavy skillet or Dutch oven for the vegetables.\n33. A large, heavy skillet or Dutch oven for the vegetables.\n34. A large,",
+    "generator": "qwen2.5-0.5b-base",
+    "dataset": "alpaca_eval",
+    "finish_reason": "max_new_tokens",
+    "new_tokens": 512
+  },
+  {
+    "id": "alpaca_eval-021",
+    "instruction": "What are some artists I might like if I like Billy Joel?",
+    "output": "If you like Billy Joel, you might like the following artists:\n\n1. *The Beatles*\n2. *The Rolling Stones*\n3. *The Who*\n4. *The Eagles*\n5. *The Beach Boys*\n6. *The Eagles*\n7. *The Beatles*\n8. *The Rolling Stones*\n9. *The Who*\n10. *The Beach Boys*\n11. *The Beatles*\n12. *The Rolling Stones*\n13. *The Who*\n14. *The Beach Boys*\n15. *The Beatles*\n16. *The Rolling Stones*\n17. *The Who*\n18. *The Beach Boys*\n19. *The Beatles*\n20. *The Rolling Stones*\n21. *The Who*\n22. *The Beach Boys*\n23. *The Beatles*\n24. *The Rolling Stones*\n25. *The Who*\n26. *The Beach Boys*\n27. *The Beatles*\n28. *The Rolling Stones*\n29. *The Who*\n30. *The Beach Boys*\n31. *The Beatles*\n32. *The Rolling Stones*\n33. *The Who*\n34. *The Beach Boys*\n35. *The Beatles*\n36. *The Rolling Stones*\n37. *The Who*\n38. *The Beach Boys*\n39. *The Beatles*\n40. *The Rolling Stones*\n41. *The Who*\n42. *The Beach Boys*\n43. *The Beatles*\n44. *The Rolling Stones*\n45. *The Who*\n46. *The Beach Boys*\n47. *The Beatles*\n48. *The Rolling Stones*\n49. *The Who*\n50. *The Beach Boys*\n51. *The Beatles*\n52. *The Rolling Stones*\n53. *The Who*\n54. *The Beach Boys*\n55. *The Beatles*\n56. *The Rolling Stones*\n57. *The Who*\n58. *The Beach Boys*\n59. *The Beatles*\n60. *The Rolling Stones*\n61. *The Who*\n62. *The Beach Boys*\n63. *The Beatles*\n64. *The Rolling Stones*\n65. *The Who*\n66. *The Beach Boys*\n67. *The Beatles*\n68. *The Rolling Stones",
+    "generator": "qwen2.5-0.5b-base",
+    "dataset": "alpaca_eval",
+    "finish_reason": "max_new_tokens",
+    "new_tokens": 512
+  },
+  {
+    "id": "alpaca_eval-025",
+    "instruction": "What are some species of bears that are now extinct?",
+    "output": "There are several species of bears that are now extinct. Some of the most well-known extinct species include the North American black bear, the California black bear, the polar bear, and the brown bear. These species were once abundant in the wild, but due to human activities such as hunting, habitat loss, and climate change, they have become endangered or extinct.",
+    "generator": "qwen2.5-0.5b-base",
+    "dataset": "alpaca_eval",
+    "finish_reason": "eos",
+    "new_tokens": 72
+  },
+  {
+    "id": "alpaca_eval-027",
+    "instruction": "What are some good foods to eat when you are sick? I am looking for something to make my girlfriend to eat.",
+    "output": "When you are sick, it is important to focus on eating healthy and nutritious foods to help your body recover. Here are some good foods to eat when you are sick:\n\n1. **Fruits and Vegetables**: These are high in vitamins, minerals, and fiber, which can help boost your immune system and aid in recovery. Examples include apples, bananas, oranges, carrots, and bell peppers.\n\n2. **Whole Grains**: Whole grains like brown rice, quinoa, and whole wheat bread are rich in fiber and can help stabilize blood sugar levels and provide sustained energy.\n\n3. **Low-Fat Dairy Products**: Milk, yogurt, and cheese are excellent sources of calcium and protein, which are essential for bone health and muscle function. They can also help soothe a sore throat.\n\n4. **Nuts and Seeds**: Almonds, walnuts, chia seeds, and pumpkin seeds are rich in healthy fats, protein, and fiber. They can help stabilize blood sugar levels and provide energy.\n\n5. **Healthy Fats**: Avocado, olive oil, and nuts are good sources of healthy fats that can help reduce inflammation and support overall health.\n\n6. **Protein Sources**: Lean meats, fish, eggs, and beans are excellent sources of protein that can help repair and rebuild tissues.\n\n7. **Hydration**: Drinking plenty of water is crucial for staying hydrated and aiding in digestion. Water can also help soothe a sore throat.\n\n8. **Rest**: Getting enough rest is essential for recovery. Avoid activities that exacerbate your symptoms and try to rest when possible.\n\n9. **Avoiding Irritants**: Stay away from spicy foods, caffeine, alcohol, and processed foods that can worsen your symptoms.\n\n10. **Stay Hydrated**: Drink plenty of water throughout the day to stay hydrated and aid in digestion.\n\nRemember, it's important to listen to your body and adjust your diet as needed. If your symptoms persist or worsen, it's best to consult with a healthcare professional.",
+    "generator": "qwen2.5-0.5b-base",
+    "dataset": "alpaca_eval",
+    "finish_reason": "eos",
+    "new_tokens": 407
+  },
+  {
+    "id": "alpaca_eval-029",
+    "instruction": "How do I clean my armpits?",
+    "output": "To clean your armpits, you can use a mild soap and warm water. Start by washing your armpits with warm water and a mild soap. Rinse them thoroughly and pat them dry with a clean towel. You can also use a hairdryer to blow-dry your armpits to remove any dirt or grime. Finally, you can use a mild shampoo to clean your armpits and scalp.",
+    "generator": "qwen2.5-0.5b-base",
+    "dataset": "alpaca_eval",
+    "finish_reason": "eos",
+    "new_tokens": 86
+  },
+  {
+    "id": "alpaca_eval-030",
+    "instruction": "How do I detail a car?",
+    "output": "To detail a car, you can follow these steps:\n\n1. **Identify the car**: Start by identifying the specific car you want to detail. This could be a new car, an old car, or a car you have recently purchased.\n\n2. **Research the car**: Before you start detailing, research the car thoroughly. Look at its history, make, model, year, and any notable features or issues.\n\n3. **Prepare the car**: Prepare the car for detail by removing any unnecessary parts or accessories. This will help ensure that the car is in good condition for the detailing process.\n\n4. **Start detailing**: Begin the detailing process by removing the car's exterior and interior. This will involve removing the paint, glass, and any other parts that are not necessary for the car's appearance.\n\n5. **Detail the car**: Once the exterior and interior are removed, begin the detailed process. This will involve painting the car, applying paint to the exterior and interior, and applying any other necessary paint or coatings.\n\n6. **Clean the car**: After the detailing process is complete, clean the car thoroughly to remove any dirt, dust, or debris that may have accumulated during the process.\n\n7. **Finalize the car**: Once the car is clean and detailed, it is ready to be driven or sold. You can then finalize the car by making any necessary adjustments or repairs.\n\nBy following these steps, you can detail a car and ensure that it is in good condition for your use.",
+    "generator": "qwen2.5-0.5b-base",
+    "dataset": "alpaca_eval",
+    "finish_reason": "eos",
+    "new_tokens": 302
+  },
+  {
+    "id": "alpaca_eval-032",
+    "instruction": "What kind of foods do they eat in Thailand",
+    "output": "Thai cuisine is known for its rich and flavorful dishes, and the country is home to a variety of delicious foods. Some of the most popular Thai dishes include:\n\n1. Pad Thai: A stir-fried rice noodle dish made with a variety of vegetables, such as bean sprouts, mushrooms, and tofu.\n\n2. Tom Yum Goong: A spicy and sour soup made with chicken, fish, and vegetables.\n\n3. Pad Moong Tom: A spicy and sour soup made with chicken, fish, and vegetables.\n\n4. Som Tum: A spicy and sour soup made with chicken, fish, and vegetables.\n\n5. Pad Krab: A spicy and sour soup made with chicken, fish, and vegetables.\n\n6. Pad Krab Tom: A spicy and sour soup made with chicken, fish, and vegetables.\n\n7. Pad Krab Tom Yum Goong: A spicy and sour soup made with chicken, fish, and vegetables.\n\n8. Pad Krab Tom Yum Goong Tom: A spicy and sour soup made with chicken, fish, and vegetables.\n\n9. Pad Krab Tom Yum Goong Tom Yum Goong: A spicy and sour soup made with chicken, fish, and vegetables.\n\n10. Pad Krab Tom Yum Goong Tom Yum Goong Tom: A spicy and sour soup made with chicken, fish, and vegetables.\n\n11. Pad Krab Tom Yum Goong Tom Yum Goong Tom Yum Goong: A spicy and sour soup made with chicken, fish, and vegetables.\n\n12. Pad Krab Tom Yum Goong Tom Yum Goong Tom Yum Goong Tom: A spicy and sour soup made with chicken, fish, and vegetables.\n\n13. Pad Krab Tom Yum Goong Tom Yum Goong Tom Yum Goong Tom Yum Goong: A spicy and sour soup made with chicken, fish, and vegetables.\n\n14. Pad Krab Tom Yum Goong Tom Yum Goong Tom Yum Goong Tom Yum Goong Tom: A spicy and sour soup made with chicken, fish, and vegetables.\n\n15. Pad Krab Tom Yum Goong Tom Yum Goong Tom Yum Goong Tom Yum Goong Tom Yum Goong: A spicy and sour soup made with chicken, fish, and vegetables.\n\n16. Pad Krab Tom Yum Goong Tom Yum Goong Tom Yum Goong Tom Yum Goong Tom Yum Go",
+    "generator": "qwen2.5-0.5b-base",
+    "dataset": "alpaca_eval",
+    "finish_reason": "max_new_tokens",
+    "new_tokens": 512
+  },
+  {
+    "id": "alpaca_eval-044",
+    "instruction": "Why did humans evolve to believe in God?",
+    "output": "The belief in God is a complex and multifaceted phenomenon that has evolved over time. While there are many reasons why humans may have evolved to believe in God, one of the most compelling arguments is the belief in a personal God who is responsible for the universe and its workings. This belief is rooted in the idea that God is the source of all existence and that he has created the world in his image. Additionally, the belief in God is often seen as a way to explain the natural world and the universe, as well as to provide a sense of meaning and purpose in the face of the chaos and uncertainty of the world.",
+    "generator": "qwen2.5-0.5b-base",
+    "dataset": "alpaca_eval",
+    "finish_reason": "eos",
+    "new_tokens": 126
+  },
+  {
+    "id": "alpaca_eval-046",
+    "instruction": "Why do a lot of Scientists not believe in God or Satan?",
+    "output": "The reason that many scientists do not believe in God or Satan is because they have not been able to prove that they are right. They have not been able to find evidence that supports their beliefs. They have not been able to prove that their beliefs are true. They have not been able to prove that their beliefs are true. They have not been able to prove that their beliefs are true. They have not been able to prove that their beliefs are true. They have not been able to prove that their beliefs are true. They have not been able to prove that their beliefs are true. They have not been able to prove that their beliefs are true. They have not been able to prove that their beliefs are true. They have not been able to prove that their beliefs are true. They have not been able to prove that their beliefs are true. They have not been able to prove that their beliefs are true. They have not been able to prove that their beliefs are true. They have not been able to prove that their beliefs are true. They have not been able to prove that their beliefs are true. They have not been able to prove that their beliefs are true. They have not been able to prove that their beliefs are true. They have not been able to prove that their beliefs are true. They have not been able to prove that their beliefs are true. They have not been able to prove that their beliefs are true. They have not been able to prove that their beliefs are true. They have not been able to prove that their beliefs are true. They have not been able to prove that their beliefs are true. They have not been able to prove that their beliefs are true. They have not been able to prove that their beliefs are true. They have not been able to prove that their beliefs are true. They have not been able to prove that their beliefs are true. They have not been able to prove that their beliefs are true. They have not been able to prove that their beliefs are true. They have not been able to prove that their beliefs are true. They have not been able to prove that their beliefs are true. They have not been able to prove that their beliefs are true. They have not been able to prove that their beliefs are true. They have not been able to prove that their beliefs are true. They have not been able to prove that their beliefs are true. They have not been able to prove that their beliefs are true. They have not been able to prove that their beliefs are true. They have not been able",
+    "generator": "qwen2.5-0.5b-base",
+    "dataset": "alpaca_eval",
+    "finish_reason": "max_new_tokens",
+    "new_tokens": 512
+  },
+  {
+    "id": "alpaca_eval-048",
+    "instruction": "Why can I see the moon during the day?",
+    "output": "The moon appears to be visible during the day because it is in the sky. The moon is a natural satellite of the Earth, and it orbits the Earth at a distance of about 384,400 kilometers (238,855 miles) from the Earth. During the day, the Earth's atmosphere scatters some of the sunlight that reaches the Earth's surface, which allows the moon to appear in the sky. This is why we can see the moon during the day, even though it is not directly visible from the Earth.",
+    "generator": "qwen2.5-0.5b-base",
+    "dataset": "alpaca_eval",
+    "finish_reason": "eos",
+    "new_tokens": 113
+  },
+  {
+    "id": "alpaca_eval-051",
+    "instruction": "Did they ever announce the release date for the new elder scrolls game?",
+    "output": "Yes, they did announce the release date for the new elder scrolls game. The game was released on November 15, 2021.",
+    "generator": "qwen2.5-0.5b-base",
+    "dataset": "alpaca_eval",
+    "finish_reason": "eos",
+    "new_tokens": 31
+  },
+  {
+    "id": "alpaca_eval-055",
+    "instruction": "What are some famous world music artists?",
+    "output": "Some famous world music artists include:\n\n1. **Beyoncé** - Known for her powerful vocals and soulful music, Beyoncé is a prominent figure in the world of music.\n\n2. **Queen** - The iconic rock band Queen is renowned for their innovative music and powerful performances.\n\n3. **The Beatles** - The Beatles are one of the most influential bands in rock history, known for their catchy tunes and innovative sound.\n\n4. **The Rolling Stones** - The Rolling Stones are a legendary rock band that has influenced countless musicians and fans worldwide.\n\n5. **The Beatles' Sound** - The Beatles' music is often compared to the sound of the Beatles themselves, with their unique blend of rock, pop, and soul.\n\n6. **The Rolling Stones' Sound** - The Rolling Stones' music is known for its energetic and energetic sound, with a focus on rock and roll.\n\n7. **The Beatles' Sound** - The Beatles' music is often compared to the sound of the Beatles themselves, with their unique blend of rock, pop, and soul.\n\n8. **The Rolling Stones' Sound** - The Rolling Stones' music is known for its energetic and energetic sound, with a focus on rock and roll.\n\n9. **The Beatles' Sound** - The Beatles' music is often compared to the sound of the Beatles themselves, with their unique blend of rock, pop, and soul.\n\n10. **The Rolling Stones' Sound** - The Rolling Stones' music is known for its energetic and energetic sound, with a focus on rock and roll.\n\n11. **The Beatles' Sound** - The Beatles' music is often compared to the sound of the Beatles themselves, with their unique blend of rock, pop, and soul.\n\n12. **The Rolling Stones' Sound** - The Rolling Stones' music is known for its energetic and energetic sound, with a focus on rock and roll.\n\n13. **The Beatles' Sound** - The Beatles' music is often compared to the sound of the Beatles themselves, with their unique blend of rock, pop, and soul.\n\n14. **The Rolling Stones' Sound** - The Rolling Stones' music is known for its energetic and energetic sound, with a focus on rock and roll.\n\n15. **The Beatles' Sound** - The Beatles' music is often compared to the sound of the Beatles themselves, with their unique blend of rock, pop, and soul.\n\n16. **The Rolling Stones' Sound** - The Rolling Stones' music is known",
+    "generator": "qwen2.5-0.5b-base",
+    "dataset": "alpaca_eval",
+    "finish_reason": "max_new_tokens",
+    "new_tokens": 512
+  },
+  {
+    "id": "alpaca_eval-057",
+    "instruction": "I like to host guests at my home from time to time, and I am gathering  recipes of different dishes and drinks to keep things interesting. I am interested in trying some Ukrainian dishes. Can you give me a recipe for Okroshka?",
+    "output": "Sure, here's a recipe for Okroshka:\n\nIngredients:\n- 1 cup of flour\n- 1/2 cup of sugar\n- 1/2 cup of water\n- 1/4 cup of milk\n- 1/4 cup of butter\n- 1/4 cup of eggs\n- 1/4 cup of milk\n- 1/4 cup of sugar\n- 1/4 cup of flour\n- 1/4 cup of sugar\n- 1/4 cup of flour\n- 1/4 cup of sugar\n- 1/4 cup of flour\n- 1/4 cup of sugar\n- 1/4 cup of flour\n- 1/4 cup of sugar\n- 1/4 cup of flour\n- 1/4 cup of sugar\n- 1/4 cup of flour\n- 1/4 cup of sugar\n- 1/4 cup of flour\n- 1/4 cup of sugar\n- 1/4 cup of flour\n- 1/4 cup of sugar\n- 1/4 cup of flour\n- 1/4 cup of sugar\n- 1/4 cup of flour\n- 1/4 cup of sugar\n- 1/4 cup of flour\n- 1/4 cup of sugar\n- 1/4 cup of flour\n- 1/4 cup of sugar\n- 1/4 cup of flour\n- 1/4 cup of sugar\n- 1/4 cup of flour\n- 1/4 cup of sugar\n- 1/4 cup of flour\n- 1/4 cup of sugar\n- 1/4 cup of flour\n- 1/4 cup of sugar\n- 1/4 cup of flour\n- 1/4 cup of sugar\n- 1/4 cup of flour\n- 1/4 cup of sugar\n- 1/4 cup of flour\n- 1/4 cup of sugar\n- 1/4 cup of flour\n- 1/4 cup of sugar\n- 1/4 cup of flour\n- 1/4 cup of sugar\n- 1/4 cup of flour\n- 1/4 cup of sugar\n- 1/4 cup of flour\n- 1/4 cup of sugar\n- 1/4 cup of flour\n- 1/4",
+    "generator": "qwen2.5-0.5b-base",
+    "dataset": "alpaca_eval",
+    "finish_reason": "max_new_tokens",
+    "new_tokens": 512
+  }
+]

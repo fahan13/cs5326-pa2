@@ -7,7 +7,20 @@ from __future__ import annotations
 
 PROMPT_TEMPLATE = "### Instruction:\n{instruction}\n\n### Response:\n"
 
+# If a model starts writing a new "### Instruction:" block, its answer is over and it is
+# now inventing the next user turn (very common for the untuned base model). Generation
+# stops there for EVERY model, so the rule is identical across base, SFT, and DPO.
+STOP_MARKER = "### Instruction:"
+
 
 def format_prompt(instruction: str) -> str:
     """Wrap a raw user instruction in the template. The response follows directly."""
     return PROMPT_TEMPLATE.format(instruction=instruction.strip())
+
+
+def clean_generation(text: str) -> tuple[str, bool]:
+    """Cut the text at STOP_MARKER. Returns (answer, whether the marker was found)."""
+    cut = text.find(STOP_MARKER)
+    if cut == -1:
+        return text.strip(), False
+    return text[:cut].strip(), True
