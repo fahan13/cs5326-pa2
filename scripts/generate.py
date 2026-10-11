@@ -37,6 +37,7 @@ from alignment.prompts import PROMPT_TEMPLATE, STOP_MARKER, clean_generation, fo
 EVAL_SETS = {
     "alpaca": REPO_ROOT / "eval_sets" / "alpaca_eval_300_seed42.json",
     "hh": REPO_ROOT / "eval_sets" / "hh_rlhf_eval_300_seed42.json",
+    "persona": REPO_ROOT / "eval_sets" / "persona_style_eval.json",
 }
 DTYPES = {"float16": torch.float16, "bfloat16": torch.bfloat16, "float32": torch.float32}
 
@@ -59,13 +60,31 @@ def write_json_atomic(data, path):
     os.replace(tmp, path)
 
 
-def decode_one(tokenizer, new_ids):
+def build_prompt(tokenizer, instruction, use_chat_template):
+    """Our ### template for the Qwen pipeline; the model's own chat template for instruct models
+    (the LoRA persona track trains SmolLM2-Instruct through TRL, which uses its chat template)."""
+    if use_chat_template:
+        messages = [{"role": "user", "content": instruction}]
+        return tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
+    return format_prompt(instruction)
+
+
+def stop_token_ids(tokenizer):
+    ids = {tokenizer.eos_token_id}
+    for token in ("<|im_end|>", "<|endoftext|>"):      # chat models end turns with <|im_end|>
+        tid = tokenizer.convert_tokens_to_ids(token)
+        if isinstance(tid, int) and tid != tokenizer.unk_token_id:
+            ids.add(tid)
+    return sorted(i for i in ids if i is not None)
+
+
+def decode_one(tokenizer, new_ids, stop_ids):
     """New token ids -> (answer text, finish reason, number of tokens the model produced)."""
     ids = new_ids.tolist()
-    eos = tokenizer.eos_token_id
-    hit_eos = eos in ids
+    first_stop = min((ids.index(t) for t in stop_ids if t in ids), default=None)
+    hit_eos = first_stop is not None
     if hit_eos:
-        ids = ids[: ids.index(eos)]   # Qwen pads finished rows with EOS, so cut at the first one
+        ids = ids[:first_stop]        # finished rows are padded with EOS, so cut at the first stop token
     text, hit_marker = clean_generation(tokenizer.decode(ids, skip_special_tokens=True))
     reason = "stop_marker" if hit_marker else "eos" if hit_eos else "max_new_tokens"
     return text, reason, len(ids)
@@ -84,6 +103,8 @@ def main():
     parser.add_argument("--no_repeat_ngram_size", type=int, default=0)
     parser.add_argument("--batch_size", type=int, default=16)
     parser.add_argument("--dtype", choices=DTYPES, default="float16")
+    parser.add_argument("--chat_template", action="store_true",
+                        help="format prompts with the tokenizer's chat template instead of our ### template")
     parser.add_argument("--limit", type=int, help="only the first N prompts (sanity checks)")
     parser.add_argument("--show", type=int, default=3, help="print this many outputs at the end")
     args = parser.parse_args()
@@ -117,7 +138,7 @@ def main():
         max_new_tokens=args.max_new_tokens,
         repetition_penalty=args.repetition_penalty,
         no_repeat_ngram_size=args.no_repeat_ngram_size,
-        eos_token_id=tokenizer.eos_token_id,
+        eos_token_id=stop_token_ids(tokenizer),
         pad_token_id=tokenizer.pad_token_id,
         stop_strings=[STOP_MARKER],
         tokenizer=tokenizer,
@@ -125,7 +146,8 @@ def main():
 
     config = {
         "model": args.model, "generator": args.generator, "eval_set": args.eval_set,
-        "prompt_template": PROMPT_TEMPLATE, "stop_marker": STOP_MARKER,
+        "prompt_template": "tokenizer chat template" if args.chat_template else PROMPT_TEMPLATE,
+        "stop_marker": STOP_MARKER,
         "decoding": {k: v for k, v in gen_kwargs.items() if k not in ("tokenizer",)},
         "dtype": str(dtype), "device": torch.cuda.get_device_name(0) if device == "cuda" else platform.processor(),
         "torch": torch.__version__, "transformers": transformers.__version__,
@@ -134,14 +156,15 @@ def main():
 
     # Longest prompts first: similar lengths share a batch (less padding), and any
     # out-of-memory error happens in the first batch instead of at the very end.
-    todo.sort(key=lambda row: len(tokenizer.encode(format_prompt(row["instruction"]))), reverse=True)
+    todo.sort(key=lambda row: len(tokenizer.encode(build_prompt(tokenizer, row["instruction"], args.chat_template))),
+              reverse=True)
     order = [row["id"] for row in rows]
     start = time.time()
 
     for i in range(0, len(todo), args.batch_size):
         batch = todo[i : i + args.batch_size]
         enc = tokenizer(
-            [format_prompt(row["instruction"]) for row in batch],
+            [build_prompt(tokenizer, row["instruction"], args.chat_template) for row in batch],
             return_tensors="pt", padding=True, add_special_tokens=False,
         ).to(device)
         with torch.inference_mode():
@@ -149,7 +172,7 @@ def main():
         new_tokens = out[:, enc["input_ids"].shape[1]:]
 
         for row, ids in zip(batch, new_tokens):
-            text, reason, n = decode_one(tokenizer, ids)
+            text, reason, n = decode_one(tokenizer, ids, gen_kwargs["eos_token_id"])
             done[row["id"]] = {
                 "id": row["id"],
                 "instruction": row["instruction"],

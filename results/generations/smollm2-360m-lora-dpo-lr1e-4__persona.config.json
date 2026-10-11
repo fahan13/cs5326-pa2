@@ -1,0 +1,27 @@
+{
+  "model": "outputs/lora_dpo_lr1e-4/merged",
+  "generator": "smollm2-360m-lora-dpo-lr1e-4",
+  "eval_set": "persona",
+  "prompt_template": "tokenizer chat template",
+  "stop_marker": "### Instruction:",
+  "decoding": {
+    "do_sample": false,
+    "temperature": null,
+    "top_p": null,
+    "top_k": null,
+    "max_new_tokens": 512,
+    "repetition_penalty": 1.1,
+    "no_repeat_ngram_size": 0,
+    "eos_token_id": [
+      2
+    ],
+    "pad_token_id": 2,
+    "stop_strings": [
+      "### Instruction:"
+    ]
+  },
+  "dtype": "torch.bfloat16",
+  "device": "NVIDIA GeForce RTX 4060 Laptop GPU",
+  "torch": "2.11.0+cu130",
+  "transformers": "4.57.6"
+}
