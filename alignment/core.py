@@ -103,3 +103,37 @@ def dpo_loss(policy, reference, pair_batch, beta):
         ref_chosen, _ = response_logps(reference, pair_batch["chosen"])
         ref_rejected, _ = response_logps(reference, pair_batch["rejected"])
     return dpo_loss_from_logps(policy_chosen, policy_rejected, ref_chosen, ref_rejected, beta)
+
+# ---------- training-time helpers (built only from the graded functions above) ----------
+
+def pair_logps(model, tokenizer, prompts, chosen, rejected, max_length):
+    """Chosen and rejected log-probs from ONE forward pass.
+
+    The 2N rows [prompt+chosen..., prompt+rejected...] go through the model together.
+    Padding is on the right and masked, so each row's score is identical to scoring it
+    alone (tested), but the GPU does one big call instead of two small ones.
+    """
+    n = len(prompts)
+    batch = build_lm_batch(tokenizer, list(prompts) * 2, list(chosen) + list(rejected), max_length)
+    logps, _ = response_logps(model, batch)
+    return logps[:n], logps[n:]
+
+
+def dpo_stats(policy_chosen, policy_rejected, ref_chosen, ref_rejected, beta):
+    """Per-pair implicit rewards plus the batch-mean loss (same formula as dpo_loss_from_logps).
+
+    reward_chosen   = beta * (log pi(y_w|x) - log ref(y_w|x))
+    reward_rejected = beta * (log pi(y_l|x) - log ref(y_l|x))
+    """
+    ref_chosen = ref_chosen.to(policy_chosen.device)
+    ref_rejected = ref_rejected.to(policy_chosen.device)
+    reward_chosen = beta * (policy_chosen - ref_chosen)
+    reward_rejected = beta * (policy_rejected - ref_rejected)
+    loss = dpo_loss_from_logps(policy_chosen, policy_rejected, ref_chosen, ref_rejected, beta)
+    return {
+        "loss": loss,
+        "reward_chosen": reward_chosen.detach(),
+        "reward_rejected": reward_rejected.detach(),
+        "correct": (reward_chosen > reward_rejected).detach(),   # strict, so ties count as wrong
+        "margin": (reward_chosen - reward_rejected).detach(),
+    }

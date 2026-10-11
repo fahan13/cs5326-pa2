@@ -246,3 +246,31 @@ def test_qwen_prompt_response_boundary_round_trips(qwen_tok):
     assert qwen_tok.decode(p_ids + r_ids) == prompt + response
     # Qwen adds no BOS token, so nothing hidden sneaks in front of the prompt.
     assert qwen_tok.encode("", add_special_tokens=True) == []
+
+
+# ---------- DPO training helpers ----------
+
+def test_pair_logps_match_scoring_each_side_separately():
+    tok = ToyTokenizer()
+    model = ToyCausalLM(tok.vocab_size, bias_scale=0.7)
+    prompts, chosen, rejected = ["P: ", "Q: "], ["good answer", "y"], ["bad", "a much longer no"]
+    c, r = core.pair_logps(model, tok, prompts, chosen, rejected, 64)
+    torch.testing.assert_close(c, adapter.compute_response_logprobs(model, tok, prompts, chosen, 64))
+    torch.testing.assert_close(r, adapter.compute_response_logprobs(model, tok, prompts, rejected, 64))
+
+
+def test_dpo_stats_rewards_and_accuracy():
+    pc, pr = torch.tensor([-1.0, -5.0]), torch.tensor([-3.0, -2.0])
+    rc, rr = torch.tensor([-2.0, -4.0]), torch.tensor([-2.0, -4.0])
+    s = core.dpo_stats(pc, pr, rc, rr, beta=0.1)
+    torch.testing.assert_close(s["reward_chosen"], torch.tensor([0.1, -0.1]))
+    torch.testing.assert_close(s["reward_rejected"], torch.tensor([-0.1, 0.2]))
+    assert s["correct"].tolist() == [True, False]
+    torch.testing.assert_close(s["loss"], adapter.compute_dpo_loss_from_logps(pc, pr, rc, rr, 0.1))
+
+
+def test_identical_policy_and_reference_give_zero_accuracy_not_half():
+    v = torch.tensor([-2.0, -7.0, -1.0])
+    s = core.dpo_stats(v, v, v, v, beta=0.1)
+    assert s["correct"].float().mean() == 0.0          # ties are not wins (manual section 10.5)
+    torch.testing.assert_close(s["loss"], torch.log(torch.tensor(2.0)))
