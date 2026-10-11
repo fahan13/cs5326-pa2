@@ -58,7 +58,10 @@ def parse_args():
     p.add_argument("--beta", type=float, default=0.1)
     p.add_argument("--lr", type=float, default=1e-6)
     p.add_argument("--warmup_steps", type=int, default=0, help="guide: none")
-    p.add_argument("--optimizer", choices=["rmsprop", "adamw"], default="rmsprop")
+    # AdamW, not RMSprop: torch's RMSprop has no bias correction, so its squared-gradient average
+    # starts near 0 and the first updates are ~10x the learning rate (Kaggle pilot: log-probs fell
+    # ~7 nats after one step at lr 1e-6). Adam's bias correction makes step 1 the intended size.
+    p.add_argument("--optimizer", choices=["rmsprop", "adamw"], default="adamw")
     p.add_argument("--weight_decay", type=float, default=0.0)
     p.add_argument("--max_length", type=int, default=512)
     p.add_argument("--micro_batch", type=int, default=1, help="pairs per forward pass")
@@ -167,7 +170,9 @@ def main():
 
     optimizer = make_optimizer(policy, args.optimizer, args.lr, args.weight_decay)
     scheduler = torch.optim.lr_scheduler.LambdaLR(optimizer, constant_with_warmup(args.warmup_steps))
-    scaler = torch.amp.GradScaler("cuda", enabled=use_amp)
+    # Start the loss scale at 2^10 instead of 2^16: every fp16 overflow skips a whole 32-pair step,
+    # and the pilot lost 2 of its first 3 steps while the default scale halved its way down.
+    scaler = torch.amp.GradScaler("cuda", init_scale=2.0 ** 10, enabled=use_amp)
 
     config = {
         **vars(args), "effective_batch": effective_batch, "total_steps": total_steps,
