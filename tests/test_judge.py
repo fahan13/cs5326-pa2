@@ -58,6 +58,7 @@ def test_mock_run_with_failures_then_resume(tmp_path):
     s = main(common + ["--reuse_judgments"])                                  # healthy rerun resumes
     assert s["n_judged"] == 7 and s["failures"] == 0
     assert s["headline"]["wins"] == 7                                         # mock prefers shorter = candidate
+    assert s["lean"]["wins"] == 7 and s["lean"]["ties"] == 0                  # forced choice never ties
     assert set(s["per_category"]["winner"]) == {"c1", "c2"}
     with pytest.raises(SystemExit):
         main(common)                                                          # output exists -> must choose a flag
