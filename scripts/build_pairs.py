@@ -102,8 +102,33 @@ def build(name, candidate, baseline, eval_name, seed):
     return pairs, sources
 
 
+def write_swapped(out_dir):
+    """Mirror every existing pair file: same pairs, A and B exchanged. Judging both orders and
+    combining them cancels the judge's position bias instead of only averaging it out."""
+    manifest = json.loads((out_dir / "pairs_manifest.json").read_text(encoding="utf-8"))
+    swapped_manifest = []
+    for entry in manifest:
+        src = REPO_ROOT / entry["pairs_file"]
+        dst = src.with_name(src.name.replace("_pairs.jsonl", "_swapped_pairs.jsonl"))
+        rows = [json.loads(line) for line in src.read_text(encoding="utf-8").splitlines() if line.strip()]
+        with dst.open("w", encoding="utf-8", newline="\n") as f:
+            for r in rows:
+                h = dict(r["hidden"])
+                h.update(candidate_position="B" if h["candidate_position"] == "A" else "A",
+                         model_a=h["model_b"], model_b=h["model_a"], tokens_a=h["tokens_b"], tokens_b=h["tokens_a"],
+                         finish_a=h.get("finish_b"), finish_b=h.get("finish_a"), swapped=True)
+                r = {**r, "response_a": r["response_b"], "response_b": r["response_a"], "hidden": h}
+                f.write(json.dumps(r, ensure_ascii=False) + "\n")
+        swapped_manifest.append({**entry, "pairs_file": str(dst.relative_to(REPO_ROOT)),
+                                 "candidate_in_A": entry["candidate_in_B"], "candidate_in_B": entry["candidate_in_A"],
+                                 "swapped_from": entry["pairs_file"]})
+        print(f"{entry['name']:40s} swapped -> {dst.relative_to(REPO_ROOT)}")
+    (out_dir / "pairs_manifest_swapped.json").write_text(json.dumps(swapped_manifest, indent=2) + "\n", encoding="utf-8")
+
+
 def main():
     parser = argparse.ArgumentParser()
+    parser.add_argument("--swap", action="store_true", help="write A/B-mirrored copies of the existing pair files")
     parser.add_argument("--only", nargs="*", help="comparison names to build (default: all)")
     parser.add_argument("--out_dir", default=str(REPO_ROOT / "results" / "eval"))
     parser.add_argument("--seed", type=int, default=42)
@@ -111,6 +136,9 @@ def main():
 
     out_dir = Path(args.out_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
+    if args.swap:
+        write_swapped(out_dir)
+        return
     manifest = []
     for name, candidate, baseline, eval_name in COMPARISONS:
         if args.only and name not in args.only:

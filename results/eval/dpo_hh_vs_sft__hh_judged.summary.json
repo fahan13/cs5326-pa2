@@ -1,0 +1,227 @@
+{
+  "comparison": "dpo_hh_vs_sft__hh",
+  "candidate": "qwen2.5-0.5b-dpo-hh",
+  "baseline": "qwen2.5-0.5b-sft",
+  "judge_model": "google/gemini-3.6-flash",
+  "judge_mode": "safety",
+  "n_pairs": 300,
+  "n_judged": 300,
+  "failures": 0,
+  "invalid_handling": "verdicts that could not be parsed are 'unknown' and excluded from win rates; pairs with no judgment after all retries are 'failures' (see .failures.jsonl)",
+  "created": "2026-10-13T00:34:18+00:00",
+  "failure_rate": 0.0,
+  "headline": {
+    "wins": 183,
+    "losses": 105,
+    "ties": 12,
+    "unknown": 0,
+    "win_rate_excl_ties": 0.6354,
+    "win_rate_ties_half": 0.63,
+    "loss_rate_excl_ties": 0.3646,
+    "unknown_rate": 0.0,
+    "criterion": "winner"
+  },
+  "per_category": {
+    "winner": {
+      "benign_helpfulness": {
+        "wins": 15,
+        "losses": 14,
+        "ties": 1,
+        "unknown": 0,
+        "win_rate_excl_ties": 0.5172,
+        "win_rate_ties_half": 0.5167,
+        "loss_rate_excl_ties": 0.4828
+      },
+      "calibration_and_uncertainty": {
+        "wins": 15,
+        "losses": 12,
+        "ties": 3,
+        "unknown": 0,
+        "win_rate_excl_ties": 0.5556,
+        "win_rate_ties_half": 0.55,
+        "loss_rate_excl_ties": 0.4444
+      },
+      "cyber_abuse": {
+        "wins": 17,
+        "losses": 11,
+        "ties": 2,
+        "unknown": 0,
+        "win_rate_excl_ties": 0.6071,
+        "win_rate_ties_half": 0.6,
+        "loss_rate_excl_ties": 0.3929
+      },
+      "harmful_instructions": {
+        "wins": 20,
+        "losses": 10,
+        "ties": 0,
+        "unknown": 0,
+        "win_rate_excl_ties": 0.6667,
+        "win_rate_ties_half": 0.6667,
+        "loss_rate_excl_ties": 0.3333
+      },
+      "hate_or_harassment": {
+        "wins": 21,
+        "losses": 8,
+        "ties": 1,
+        "unknown": 0,
+        "win_rate_excl_ties": 0.7241,
+        "win_rate_ties_half": 0.7167,
+        "loss_rate_excl_ties": 0.2759
+      },
+      "legal_financial_safety": {
+        "wins": 20,
+        "losses": 9,
+        "ties": 1,
+        "unknown": 0,
+        "win_rate_excl_ties": 0.6897,
+        "win_rate_ties_half": 0.6833,
+        "loss_rate_excl_ties": 0.3103
+      },
+      "medical_safety": {
+        "wins": 17,
+        "losses": 13,
+        "ties": 0,
+        "unknown": 0,
+        "win_rate_excl_ties": 0.5667,
+        "win_rate_ties_half": 0.5667,
+        "loss_rate_excl_ties": 0.4333
+      },
+      "privacy_and_doxxing": {
+        "wins": 24,
+        "losses": 6,
+        "ties": 0,
+        "unknown": 0,
+        "win_rate_excl_ties": 0.8,
+        "win_rate_ties_half": 0.8,
+        "loss_rate_excl_ties": 0.2
+      },
+      "safe_transformation": {
+        "wins": 18,
+        "losses": 8,
+        "ties": 4,
+        "unknown": 0,
+        "win_rate_excl_ties": 0.6923,
+        "win_rate_ties_half": 0.6667,
+        "loss_rate_excl_ties": 0.3077
+      },
+      "self_harm_support": {
+        "wins": 16,
+        "losses": 14,
+        "ties": 0,
+        "unknown": 0,
+        "win_rate_excl_ties": 0.5333,
+        "win_rate_ties_half": 0.5333,
+        "loss_rate_excl_ties": 0.4667
+      }
+    },
+    "lean": {
+      "benign_helpfulness": {
+        "wins": 16,
+        "losses": 14,
+        "ties": 0,
+        "unknown": 0,
+        "win_rate_excl_ties": 0.5333,
+        "win_rate_ties_half": 0.5333,
+        "loss_rate_excl_ties": 0.4667
+      },
+      "calibration_and_uncertainty": {
+        "wins": 16,
+        "losses": 14,
+        "ties": 0,
+        "unknown": 0,
+        "win_rate_excl_ties": 0.5333,
+        "win_rate_ties_half": 0.5333,
+        "loss_rate_excl_ties": 0.4667
+      },
+      "cyber_abuse": {
+        "wins": 19,
+        "losses": 11,
+        "ties": 0,
+        "unknown": 0,
+        "win_rate_excl_ties": 0.6333,
+        "win_rate_ties_half": 0.6333,
+        "loss_rate_excl_ties": 0.3667
+      },
+      "harmful_instructions": {
+        "wins": 20,
+        "losses": 10,
+        "ties": 0,
+        "unknown": 0,
+        "win_rate_excl_ties": 0.6667,
+        "win_rate_ties_half": 0.6667,
+        "loss_rate_excl_ties": 0.3333
+      },
+      "hate_or_harassment": {
+        "wins": 21,
+        "losses": 9,
+        "ties": 0,
+        "unknown": 0,
+        "win_rate_excl_ties": 0.7,
+        "win_rate_ties_half": 0.7,
+        "loss_rate_excl_ties": 0.3
+      },
+      "legal_financial_safety": {
+        "wins": 21,
+        "losses": 9,
+        "ties": 0,
+        "unknown": 0,
+        "win_rate_excl_ties": 0.7,
+        "win_rate_ties_half": 0.7,
+        "loss_rate_excl_ties": 0.3
+      },
+      "medical_safety": {
+        "wins": 17,
+        "losses": 13,
+        "ties": 0,
+        "unknown": 0,
+        "win_rate_excl_ties": 0.5667,
+        "win_rate_ties_half": 0.5667,
+        "loss_rate_excl_ties": 0.4333
+      },
+      "privacy_and_doxxing": {
+        "wins": 24,
+        "losses": 6,
+        "ties": 0,
+        "unknown": 0,
+        "win_rate_excl_ties": 0.8,
+        "win_rate_ties_half": 0.8,
+        "loss_rate_excl_ties": 0.2
+      },
+      "safe_transformation": {
+        "wins": 20,
+        "losses": 10,
+        "ties": 0,
+        "unknown": 0,
+        "win_rate_excl_ties": 0.6667,
+        "win_rate_ties_half": 0.6667,
+        "loss_rate_excl_ties": 0.3333
+      },
+      "self_harm_support": {
+        "wins": 16,
+        "losses": 14,
+        "ties": 0,
+        "unknown": 0,
+        "win_rate_excl_ties": 0.5333,
+        "win_rate_ties_half": 0.5333,
+        "loss_rate_excl_ties": 0.4667
+      }
+    }
+  },
+  "lean": {
+    "wins": 190,
+    "losses": 110,
+    "ties": 0,
+    "unknown": 0,
+    "win_rate_excl_ties": 0.6333,
+    "win_rate_ties_half": 0.6333,
+    "loss_rate_excl_ties": 0.3667,
+    "unknown_rate": 0.0,
+    "criterion": "lean"
+  },
+  "judge_picked_A_rate": 0.5625,
+  "longer_response_won_rate": 0.4225,
+  "run_stats": {
+    "requests": 60,
+    "seconds": 841
+  }
+}
