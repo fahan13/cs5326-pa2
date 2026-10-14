@@ -1,0 +1,41 @@
+{
+  "comparison": "dpo_hh_vs_sft__alpaca",
+  "candidate": "qwen2.5-0.5b-dpo-hh",
+  "baseline": "qwen2.5-0.5b-sft",
+  "judge_model": "google/gemini-3.6-flash",
+  "judge_mode": "general",
+  "n_pairs": 300,
+  "n_judged": 300,
+  "failures": 0,
+  "invalid_handling": "verdicts that could not be parsed are 'unknown' and excluded from win rates; pairs with no judgment after all retries are 'failures' (see .failures.jsonl)",
+  "created": "2026-10-13T02:45:50+00:00",
+  "failure_rate": 0.0,
+  "headline": {
+    "wins": 136,
+    "losses": 132,
+    "ties": 32,
+    "unknown": 0,
+    "win_rate_excl_ties": 0.5075,
+    "win_rate_ties_half": 0.5067,
+    "loss_rate_excl_ties": 0.4925,
+    "unknown_rate": 0.0,
+    "criterion": "winner"
+  },
+  "lean": {
+    "wins": 159,
+    "losses": 141,
+    "ties": 0,
+    "unknown": 0,
+    "win_rate_excl_ties": 0.53,
+    "win_rate_ties_half": 0.53,
+    "loss_rate_excl_ties": 0.47,
+    "unknown_rate": 0.0,
+    "criterion": "lean"
+  },
+  "judge_picked_A_rate": 0.6716,
+  "longer_response_won_rate": 0.447,
+  "run_stats": {
+    "requests": 60,
+    "seconds": 893
+  }
+}

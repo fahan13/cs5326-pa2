@@ -72,3 +72,13 @@ def test_persona_mode_has_four_criteria(tmp_path):
     s = main(["--pairs_path", str(pairs_path), "--output_path", str(out), "--backend", "mock", "--sleep_seconds", "0"])
     assert s["headline"]["criterion"] == "overall"
     assert all(k in s for k in ("style", "usefulness", "safety"))
+
+
+def test_combining_both_orders():
+    sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
+    from combine_judgments import binom_two_sided_p, combine_outcomes
+    assert combine_outcomes("win", "win") == "win" and combine_outcomes("win", "tie") == "win"
+    assert combine_outcomes("loss", "tie") == "loss" and combine_outcomes("loss", "loss") == "loss"
+    assert combine_outcomes("win", "loss") == "tie"           # flipped with order -> position bias, not evidence
+    assert combine_outcomes("tie", "tie") == "tie" and combine_outcomes("unknown", "win") == "unknown"
+    assert binom_two_sided_p(5, 5) == 1.0 and binom_two_sided_p(10, 0) < 0.01
