@@ -1,0 +1,31 @@
+Console logs of the two short DPO pilots that motivated RMSprop -> AdamW and GradScaler init 2^10 (report Table 3).
+RMSprop pilot ran before commit e611dce, AdamW pilot at e611dce (scripts/train_dpo.py); 'grad inf' = fp16 overflow, step skipped by GradScaler.
+
+=== RMSprop pilot (Kaggle T4, real SFT checkpoint, both models on cuda:0)
+[hh] 15000 train / 32 val pairs | 5 steps of 32 pairs | beta 0.1 | lr 1e-06 | rmsprop | policy cuda:0 ref cuda:0 (float32)
+step 0 | val loss 0.6931 (expect 0.6931) | acc 0.000 (expect 0) | margin 0.0000
+/kaggle/working/cs5326-pa2/scripts/train_dpo.py:217: UserWarning: Detected call of `lr_scheduler.step()` before `optimizer.step()`. In PyTorch 1.1.0 and later, you should call them in the opposite order: `optimizer.step()` before `lr_scheduler.step()`.  Failure to do this will result in PyTorch skipping the first value of the learning rate schedule. See more details at https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate
+  scheduler.step()
+step 1/5 | loss 0.6931 | acc 0.00 | margin 0.000 | r_w 0.000 r_l 0.000 | grad inf | mem 9.11 GB | 8.80 steps/min | ETA 0 min
+step 2/5 | loss 0.6931 | acc 0.00 | margin 0.000 | r_w 0.000 r_l 0.000 | grad 43.78 | mem 9.9 GB | 9.05 steps/min | ETA 0 min
+step 3/5 | loss 0.8225 | acc 0.50 | margin -0.076 | r_w -0.728 r_l -0.653 | grad inf | mem 11.26 GB | 9.20 steps/min | ETA 0 min
+step 4/5 | loss 0.6684 | acc 0.53 | margin 0.132 | r_w -0.623 r_l -0.755 | grad 41.34 | mem 11.26 GB | 9.29 steps/min | ETA 0 min
+step 5/5 | loss 0.6698 | acc 0.56 | margin 0.232 | r_w -0.487 r_l -0.719 | grad 41.89 | mem 11.26 GB | 9.29 steps/min | ETA 0 min
+step 5 | val loss 0.7798 | acc 0.469 | margin -0.0986 (best)
+done | best val acc 0.469 at step 5 | 0.7 min
+
+=== AdamW pilot (Kaggle T4, real SFT checkpoint, both models on cuda:0)
+[hh] 15000 train / 64 val pairs | 10 steps of 32 pairs | beta 0.1 | lr 1e-06 | adamw | policy cuda:0 ref cuda:0 (float32)
+step 0 | val loss 0.6931 (expect 0.6931) | acc 0.000 (expect 0) | margin 0.0000
+step 1/10 | loss 0.6931 | acc 0.00 | margin 0.000 | r_w 0.000 r_l 0.000 | grad 45.40 | mem 9.9 GB | 9.26 steps/min | ETA 1 min
+step 2/10 | loss 0.7048 | acc 0.28 | margin -0.023 | r_w 0.023 r_l 0.046 | grad 44.53 | mem 12.78 GB | 9.47 steps/min | ETA 1 min
+step 3/10 | loss 0.6966 | acc 0.44 | margin -0.006 | r_w 0.007 r_l 0.013 | grad 41.41 | mem 13.24 GB | 9.55 steps/min | ETA 1 min
+step 4/10 | loss 0.6963 | acc 0.47 | margin -0.006 | r_w 0.001 r_l 0.007 | grad 39.51 | mem 13.24 GB | 9.62 steps/min | ETA 1 min
+step 5/10 | loss 0.6912 | acc 0.56 | margin 0.004 | r_w -0.000 r_l -0.004 | grad 45.54 | mem 13.24 GB | 9.61 steps/min | ETA 1 min
+step 6/10 | loss 0.6912 | acc 0.59 | margin 0.005 | r_w -0.017 r_l -0.022 | grad 40.01 | mem 13.93 GB | 9.63 steps/min | ETA 0 min
+step 7/10 | loss 0.7024 | acc 0.41 | margin -0.017 | r_w -0.027 r_l -0.010 | grad 41.91 | mem 13.93 GB | 9.63 steps/min | ETA 0 min
+step 8/10 | loss 0.6879 | acc 0.66 | margin 0.012 | r_w -0.022 r_l -0.034 | grad 42.62 | mem 13.93 GB | 9.68 steps/min | ETA 0 min
+step 9/10 | loss 0.6864 | acc 0.62 | margin 0.017 | r_w -0.027 r_l -0.044 | grad 44.41 | mem 13.93 GB | 9.71 steps/min | ETA 0 min
+step 10/10 | loss 0.7034 | acc 0.38 | margin -0.019 | r_w -0.044 r_l -0.025 | grad 36.81 | mem 13.93 GB | 9.76 steps/min | ETA 0 min
+step 10 | val loss 0.6868 | acc 0.453 | margin 0.0158 (best)
+done | best val acc 0.453 at step 10 | 1.2 min
