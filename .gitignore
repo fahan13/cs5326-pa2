@@ -12,3 +12,14 @@ checkpoints/
 # Kaggle downloads
 *.zip
 *.ipynb
+
+# LaTeX build files
+report/*.aux
+report/*.log
+report/*.fls
+report/*.fdb_latexmk
+report/*.out
+report/*.synctex.gz
+
+# Report is written and submitted separately, not kept in the repo
+report/
